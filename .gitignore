@@ -1,2 +1,4 @@
 node_modules/
 build/**
+misc/ssl/*
+!misc/ssl/README.md
