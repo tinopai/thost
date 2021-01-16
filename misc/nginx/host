@@ -1,19 +1,19 @@
 server {
 	listen 80;
-	listen [::]:80 default_server;
+	listen [::]:80;
 
-	listen 443 ssl default_server;
-	listen [::]:443 ssl default_server;
+	listen 443 ssl;
+	listen [::]:443 ssl;
 
-	# Serve a self-signed certificate
+	# Use your SSL directory here
 	ssl_certificate /home/ubuntu/thost/misc/ssl/crt.pem;
 	ssl_certificate_key /home/ubuntu/thost/misc/ssl/key.pem;
 
     # Use your server names here
-	server_name "";
+	server_name tino.rest;
 
 	location / {
-		return 444;
+		proxy_pass http://127.0.0.1:3000;
 	}
 
 }
